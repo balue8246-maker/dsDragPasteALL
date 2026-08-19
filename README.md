@@ -55,3 +55,15 @@ cordis.patch.yml  bundle patch：挂载插件行
 
 macOS 优先（mdfind / stat -f / shasum）；非 macOS 自动退化为 find + stat 常规目录，
 仍走缓存兜底路径。
+
+## 开发
+
+```bash
+bash scripts/smoke-test.sh   # 反查命令链路冒烟测试（依赖/stat 格式/指纹口径/mdfind）
+bash scripts/ci.sh           # 语法检查 + ESM 加载 + 冒烟测试（GitHub Actions 同款）
+```
+
+## 许可
+
+MIT © balue8246-maker — 详见 [LICENSE](LICENSE)。
+
