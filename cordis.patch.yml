@@ -1,0 +1,5 @@
+# dsDragPasteALL — bundle patch layer.
+# 把包主入口挂载为 Host 插件（纯 Cordis 插件，零外部依赖）。
+- insert:
+    - id: dsdragpasteall
+      name: dsdragpasteall
