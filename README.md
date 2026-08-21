@@ -73,6 +73,21 @@ bash scripts/smoke-test.sh   # 反查命令链路冒烟测试（依赖/stat 格�
 bash scripts/ci.sh           # 语法检查 + ESM 加载 + 冒烟测试（GitHub Actions 同款）
 ```
 
+**改代码后如何让已安装的 profile 生效**（重要，易踩坑）：
+`pnpm add "file:..."` 对 file: 目录依赖创建的是**硬链接**——用编辑器/工具
+"复制+替换"方式改源码会换掉 inode，硬链接随即断开，安装副本停留在旧内容，
+页面刷新后仍是旧行为（表现：改了 client 半但完全不生效）。修改源码后请执行：
+
+```bash
+cd ~/.dsh/profiles/web
+rm -rf node_modules/dsdragpasteall && pnpm install   # 重新硬链接全部文件
+# 或直接覆盖同步（更快）：
+cp "/path/to/dsDragPasteALL/lib/client.js" node_modules/dsdragpasteall/lib/client.js
+```
+
+然后**硬刷新页面**（⌘⇧R）即可，无需重启 dsh web——client bundle 由
+`/plugins/<id>/client.js` 路由按请求实时读取（`cache-control: no-cache`）。
+
 ## 许可
 
 MIT © balue8246-maker — 详见 [LICENSE](LICENSE)。
