@@ -1,7 +1,7 @@
 {
   "name": "dsdragpasteall",
-  "version": "1.0.0",
-  "description": "dsDragPasteALL：拖拽/粘贴本机任意文件到 DSH 页面，后台静默反查文件真实路径（Spotlight + find + 首尾哈希校验），命中后把路径直接插入对话框输入框；找不到原文件则内容缓存兜底。",
+  "version": "1.0.1",
+  "description": "dsDragPasteALL：拖拽任意文件/粘贴非图片文件到 DSH 页面（纯图片粘贴交给原生成图），后台静默反查文件真实路径（Spotlight + find + 首尾哈希校验），命中后把路径直接插入对话框输入框；找不到原文件则内容缓存兜底。",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
